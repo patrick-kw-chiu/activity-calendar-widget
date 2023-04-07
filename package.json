@@ -1,13 +1,13 @@
 {
   "name": "activity-calendar-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "./preview/src/output/react/ActivityCalendarWidget.jsx",
+  "main": "./preview/src/output/react/src/ActivityCalendarWidget.jsx",
   "exports": {
-    "./react": "./preview/src/output/react/ActivityCalendarWidget.jsx",
-    "./svelte": "./preview/src/output/svelte/ActivityCalendarWidget.svelte",
-    "./vue": "./preview/src/output/vue/ActivityCalendarWidget.vue",
-    "./solid": "./preview/src/output/solidActivityCalendarWidget.jsx"
+    "./react": "./preview/src/output/react/src/ActivityCalendarWidget.jsx",
+    "./svelte": "./preview/src/output/svelte/src/ActivityCalendarWidget.svelte",
+    "./vue": "./preview/src/output/vue/src/ActivityCalendarWidget.vue",
+    "./solid": "./preview/src/output/solid/src/ActivityCalendarWidget.jsx"
   },
   "scripts": {
     "build": "npm exec mitosis build"
@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/patrick-kw-chiu/activity-calendar-widget.git"
   },
+  "files": [
+    "preview/src/output/**/*"
+  ],
   "keywords": [
     "github",
     "github activity",

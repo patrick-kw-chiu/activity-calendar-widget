@@ -1,6 +1,6 @@
 {
   "name": "activity-calendar-widget",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "./output/react/src/ActivityCalendarWidget.jsx",
   "exports": {

@@ -6,8 +6,10 @@ module.exports = {
     'svelte',
     'vue3',
     'solid',
-    'angular',
+    // angular's generated components don't seem to import components, types nor functions correctly
+    // 'angular',
     'qwik',
   ],
-  dest: 'preview/src/output',
+  dest: 'output',
+  // dest: 'preview/src/output',
 };

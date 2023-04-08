@@ -6,6 +6,8 @@ import CONSTANTS from '../constants/constants';
 // types
 import { Data } from '../types/Data';
 import { DateTime } from '../types/DateTime';
+import { WeekdayLabel } from '../types/WeekdayLabel';
+import { MonthLabel } from '../types/MonthLabel';
 
 // components
 import Day from './Day.lite';
@@ -34,7 +36,8 @@ type DaysProps = {
   daysToRender?: number;
   showWeekdayLabels?: boolean;
   showMonthLabels?: boolean;
-  weekdayLabels?: string[];
+  weekdayLabel?: WeekdayLabel;
+  monthLabel?: MonthLabel;
   // Event Handler
   clickHandler?: Function;
 };
@@ -51,7 +54,7 @@ const getDayDiffToStartOfCalendar = (weekStart) => {
 
 const getContainerWidth = ({ weekStart, daysToRender, showWeekdayLabels }) => {
   const daysContainerWidth = getDaysContainerWidth({ weekStart, daysToRender });
-  return daysContainerWidth + (showWeekdayLabels ?? true ? 36 : 0) + 'px';
+  return daysContainerWidth + (showWeekdayLabels ?? true ? 42 : 0) + 'px';
 };
 
 const getDaysContainerWidth = ({ weekStart, daysToRender }) => {
@@ -157,13 +160,16 @@ const getDayRight = (arg) => {
 };
 
 // Week Block
-const getWeekdayLabels = ({ weekdayLabels, weekStart = 0 }) => {
-  if (weekdayLabels) return weekdayLabels;
-
+const getWeekdayLabels = ({ weekdayLabel, weekStart = 0 }) => {
   let _weekdayLabels = [];
   for (let i = 0; i < 7; i++) {
     let weekStartId = weekStart + i >= 7 ? weekStart + i - 7 : weekStart + i;
-    if ([1, 3, 5].includes(i)) {
+    if (weekdayLabel) {
+      // If `weekdayLabel` is available
+      // => only render `weekdayLabel` value
+      _weekdayLabels.push(weekdayLabel?.[weekStartId] || '');
+    } else if ([1, 3, 5].includes(i)) {
+      // Otherwise, render only the 2nd, 4th, 6th value
       _weekdayLabels.push(CONSTANTS.WEEK_MAP[weekStartId]);
     } else {
       _weekdayLabels.push('');
@@ -176,7 +182,11 @@ const getWeekdayLabels = ({ weekdayLabels, weekStart = 0 }) => {
 // Month Block
 const getMonthRight = (arg) => {
   // day's right position - width + day's width
-  return getDayRight(arg) - 32 + 12;
+  return getDayRight(arg) - 36 + 12;
+};
+
+const getMonthLabel = ({ monthLabel, dt, CONSTANTS }) => {
+  return monthLabel?.[dt.month] ?? CONSTANTS.MONTH_MAP[dt.month];
 };
 
 // Summary Block
@@ -240,13 +250,13 @@ export default function Days(props: DaysProps) {
               position: 'relative',
               display: 'inline-block',
               verticalAlign: 'top',
-              width: 30 + 'px',
+              width: 36 + 'px',
               height: '100%',
             }}
           >
             <For
               each={getWeekdayLabels({
-                weekdayLabels: props.weekdayLabels,
+                weekdayLabel: props.weekdayLabel,
                 weekStart: props.weekStart,
               })}
             >
@@ -282,7 +292,11 @@ export default function Days(props: DaysProps) {
               <div key={index}>
                 <Show when={(props.showMonthLabels ?? true) && dt.day === 1}>
                   <Month
-                    month={CONSTANTS.MONTH_MAP[dt.month]}
+                    month={getMonthLabel({
+                      monthLabel: props.monthLabel,
+                      dt,
+                      CONSTANTS,
+                    })}
                     right={
                       getMonthRight({
                         dayDiffFromToday: dt.dayDiffFromToday,

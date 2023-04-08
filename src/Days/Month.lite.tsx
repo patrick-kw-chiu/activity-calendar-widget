@@ -8,7 +8,7 @@ export default function Month(props: Props) {
     <div
       style={{
         position: 'absolute',
-        width: '32px',
+        width: '36px',
         top: '-16px',
         right: props.right,
       }}

@@ -2,6 +2,8 @@ import { Show } from '@builder.io/mitosis';
 
 // types
 import { Data } from './types/Data';
+import { WeekdayLabel } from './types/WeekdayLabel';
+import { MonthLabel } from './types/MonthLabel';
 
 // components
 import Days from './Days/Days.lite';
@@ -29,7 +31,8 @@ type ActivityCalendarWidgetProps = {
   daysToRender?: number;
   showWeekdayLabels?: boolean;
   showMonthLabels?: boolean;
-  weekdayLabels?: string[];
+  weekdayLabel?: WeekdayLabel;
+  monthLabel?: MonthLabel;
   // Event Handler
   clickHandler?: Function;
 };
@@ -57,7 +60,8 @@ export default function ActivityCalendarWidget(
           daysToRender={props.daysToRender}
           showWeekdayLabels={props.showWeekdayLabels}
           showMonthLabels={props.showMonthLabels}
-          weekdayLabels={props.weekdayLabels}
+          weekdayLabel={props.weekdayLabel}
+          monthLabel={props.monthLabel}
           clickHandler={props.clickHandler}
         />
       </Show>

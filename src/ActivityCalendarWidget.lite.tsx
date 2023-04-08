@@ -1,4 +1,4 @@
-import { Show } from '@builder.io/mitosis';
+import { Show, useDefaultProps } from '@builder.io/mitosis';
 
 // types
 import { Data } from './types/Data';
@@ -40,6 +40,10 @@ type ActivityCalendarWidgetProps = {
 export default function ActivityCalendarWidget(
   props: ActivityCalendarWidgetProps
 ) {
+  useDefaultProps({
+    clickHandler: () => {},
+  });
+
   return (
     <div>
       <Show when={!props.mode || props.mode === 'day'}>

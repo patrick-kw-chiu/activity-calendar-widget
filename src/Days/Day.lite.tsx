@@ -1,4 +1,4 @@
-import { Show, useStore, useDefaultProps } from '@builder.io/mitosis';
+import { Show, useStore } from '@builder.io/mitosis';
 
 // constants
 import CONSTANTS from '../constants/constants';
@@ -58,10 +58,6 @@ const getTooltipText = ({
 };
 
 export default function Day(props: DayProps) {
-  useDefaultProps({
-    clickHandler: () => {},
-  });
-
   const state = useStore({
     showTooltip: false,
     tooltipPosition: 'center',

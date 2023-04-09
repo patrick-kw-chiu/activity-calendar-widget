@@ -41,7 +41,9 @@ export default function ActivityCalendarWidget(
   props: ActivityCalendarWidgetProps
 ) {
   useDefaultProps({
-    clickHandler: () => {},
+    clickHandler: () => {
+      return () => {};
+    },
   });
 
   return (
@@ -49,7 +51,7 @@ export default function ActivityCalendarWidget(
       <Show when={!props.mode || props.mode === 'day'}>
         <Days
           data={props.data}
-          showSummary={props.showLevels}
+          showSummary={props.showSummary}
           summaryText={props.summaryText}
           showLevels={props.showLevels}
           levelColorMode={props.levelColorMode}

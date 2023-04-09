@@ -24,8 +24,20 @@ export const WEEK_MAP = {
 };
 
 export const LEVEL_COLOR = {
-  dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: [
+    'var(--activity-calendar-widget-dark-0, #161b22)',
+    'var(--activity-calendar-widget-dark-1, #0e4429)',
+    'var(--activity-calendar-widget-dark-2, #006d32)',
+    'var(--activity-calendar-widget-dark-3, #26a641)',
+    'var(--activity-calendar-widget-dark-4, #39d353)',
+  ],
+  light: [
+    'var(--activity-calendar-widget-light-0, #ebedf0)',
+    'var(--activity-calendar-widget-light-1, #9be9a8)',
+    'var(--activity-calendar-widget-light-2, #40c463)',
+    'var(--activity-calendar-widget-light-3, #30a14e)',
+    'var(--activity-calendar-widget-light-4, #216e39)',
+  ],
 };
 
 export default {

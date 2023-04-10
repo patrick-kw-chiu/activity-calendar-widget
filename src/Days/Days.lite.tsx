@@ -223,6 +223,7 @@ export default function Days(props: DaysProps) {
   return (
     <div
       style={{
+        textAlign: 'left',
         display: 'inline-block',
         position: 'relative',
         width: getContainerWidth({

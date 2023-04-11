@@ -113,7 +113,12 @@ const getDays = ({ levelColors, data, weekStart, daysToRender }) => {
       const year = dt.getFullYear();
       const month = dt.getMonth() + 1;
       const day = dt.getDate();
-      const id = year + '-' + month + '-' + day;
+      const id =
+        year +
+        '-' +
+        (month + '').padStart(2, '0') +
+        '-' +
+        (day + '').padStart(2, '0');
       const activities = dataMap.get(id) || [];
       const activitiesPerc = activities.length / maxNumOfContributions;
       const level =

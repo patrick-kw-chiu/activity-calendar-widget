@@ -11,6 +11,7 @@ import Days from './Days/Days.lite';
 type ActivityCalendarWidgetProps = {
   // General props
   data: Data[];
+  daysToRender?: number;
   mode?: 'day' | 'week' | 'month';
   // General props - summary
   showSummary?: boolean;
@@ -28,7 +29,6 @@ type ActivityCalendarWidgetProps = {
   tooltipText?: string;
   // 'day' specific props
   weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  daysToRender?: number;
   showWeekdayLabels?: boolean;
   showMonthLabels?: boolean;
   weekdayLabel?: WeekdayLabel;
@@ -51,6 +51,7 @@ export default function ActivityCalendarWidget(
       <Show when={!props.mode || props.mode === 'day'}>
         <Days
           data={props.data}
+          daysToRender={props.daysToRender}
           showSummary={props.showSummary}
           summaryText={props.summaryText}
           showLevels={props.showLevels}
@@ -63,7 +64,6 @@ export default function ActivityCalendarWidget(
           tooltipTextColor={props.tooltipTextColor}
           tooltipText={props.tooltipText}
           weekStart={props.weekStart}
-          daysToRender={props.daysToRender}
           showWeekdayLabels={props.showWeekdayLabels}
           showMonthLabels={props.showMonthLabels}
           weekdayLabel={props.weekdayLabel}

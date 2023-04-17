@@ -17,6 +17,9 @@ import Month from './Month.lite';
 type DaysProps = {
   // General props
   data: Data[];
+  daysToRender?: number;
+  // Event Handler
+  clickHandler?: Function;
   // General props - summary
   showSummary?: boolean;
   summaryText?: string;
@@ -33,13 +36,10 @@ type DaysProps = {
   tooltipText?: string;
   // 'day' specific props
   weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  daysToRender?: number;
   showWeekdayLabels?: boolean;
-  showMonthLabels?: boolean;
   weekdayLabel?: WeekdayLabel;
+  showMonthLabels?: boolean;
   monthLabel?: MonthLabel;
-  // Event Handler
-  clickHandler?: Function;
 };
 
 // Day Block

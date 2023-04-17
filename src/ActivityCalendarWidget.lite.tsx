@@ -13,6 +13,8 @@ type ActivityCalendarWidgetProps = {
   data: Data[];
   daysToRender?: number;
   mode?: 'day' | 'week' | 'month';
+  // Event Handler
+  clickHandler?: Function;
   // General props - summary
   showSummary?: boolean;
   summaryText?: string;
@@ -30,11 +32,9 @@ type ActivityCalendarWidgetProps = {
   // 'day' specific props
   weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   showWeekdayLabels?: boolean;
-  showMonthLabels?: boolean;
   weekdayLabel?: WeekdayLabel;
+  showMonthLabels?: boolean;
   monthLabel?: MonthLabel;
-  // Event Handler
-  clickHandler?: Function;
 };
 
 export default function ActivityCalendarWidget(
@@ -65,8 +65,8 @@ export default function ActivityCalendarWidget(
           tooltipText={props.tooltipText}
           weekStart={props.weekStart}
           showWeekdayLabels={props.showWeekdayLabels}
-          showMonthLabels={props.showMonthLabels}
           weekdayLabel={props.weekdayLabel}
+          showMonthLabels={props.showMonthLabels}
           monthLabel={props.monthLabel}
           clickHandler={props.clickHandler}
         />

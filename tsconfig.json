@@ -1,7 +1,11 @@
 {
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "@builder.io/mitosis",
-    "target": "es5"
-  }
+	"compilerOptions": {
+		"target": "ESNext",
+		"strict": true,
+		"jsx": "preserve",
+		"noImplicitAny": false,
+		"moduleResolution": "node",
+		"jsxImportSource": "@builder.io/mitosis"
+	},
+	"include": ["src"]
 }

@@ -1,6 +1,6 @@
 # Activity Calendar Widget
 
-A "GitHub Contribution/Activity" like calendar widget, that can be used as native components of [React](https://stackblitz.com/edit/react-ts-pjkx7k), [Vue](https://stackblitz.com/edit/vue-at6pyy), [Svelte](https://stackblitz.com/edit/vitejs-vite-r7rxjt?terminal=dev), [Solid](https://stackblitz.com/edit/solidjs-templates-mjote1) and [Qwik](https://stackblitz.com/edit/qwik-starter-due4dq). You can used it with the [GitHub activity API](https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28#list-public-events-for-a-user) or to display any activity data.
+A "GitHub Contribution/Activity" like calendar widget, that can be used as native components of [React](https://stackblitz.com/edit/react-ts-pjkx7k), [Vue](https://stackblitz.com/edit/vitejs-vite-zwsqz2?file=src), [Svelte](https://stackblitz.com/edit/vitejs-vite-r7rxjt?terminal=dev), [Solid](https://stackblitz.com/edit/solidjs-templates-mjote1) and [Qwik](https://stackblitz.com/edit/qwik-starter-due4dq). You can used it with the [GitHub activity API](https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28#list-public-events-for-a-user) or to display any activity data.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/42149082/231084223-c334f434-26e1-45b0-b707-9548d29013a1.png">
@@ -33,19 +33,19 @@ It can then be imported in various frameworks like...
 
 ```javascript
 // React
-import ActivityCalendarWidget from 'activity-calendar-widget/react';
+import ActivityCalendarWidget from "activity-calendar-widget/react";
 
 // Vue
-import ActivityCalendarWidget from 'activity-calendar-widget/vue';
+import ActivityCalendarWidget from "activity-calendar-widget/vue";
 
 // Svelte
-import ActivityCalendarWidget from 'activity-calendar-widget/svelte';
+import ActivityCalendarWidget from "activity-calendar-widget/svelte";
 
 // Solid
-import ActivityCalendarWidget from 'activity-calendar-widget/solid';
+import ActivityCalendarWidget from "activity-calendar-widget/solid";
 
 // Qwik
-import ActivityCalendarWidget from 'activity-calendar-widget/qwik';
+import ActivityCalendarWidget from "activity-calendar-widget/qwik";
 ```
 
 ### Basic Usage
@@ -199,3 +199,27 @@ export type MonthLabel = Record<MonthKey, string>;
 - Support `mode={'week'}`
 
 <img width="420" alt="Screenshot 2023-04-13 at 1 12 12 AM" src="https://user-images.githubusercontent.com/42149082/231660200-3b92e315-44b5-4568-b6f8-87150e9d1ff6.png">
+
+## Development
+
+0. (One off) Install dependencies of the Mitosis component and the test app
+
+```
+npm install
+
+cd test-app
+npm install
+```
+
+1. In the root directory, watch and re-build changes in `/src`.
+
+```
+npm run start
+```
+
+2. In another terminal, run the test-app (an Astro app that have `react`, `solid`, `svelte` and `vue` baked in)
+
+```
+cd test-app
+npm run start
+```

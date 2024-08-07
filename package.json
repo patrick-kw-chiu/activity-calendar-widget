@@ -1,49 +1,53 @@
 {
-  "name": "activity-calendar-widget",
-  "version": "0.0.14",
-  "description": "",
-  "main": "./output/react/src/ActivityCalendarWidget.jsx",
-  "exports": {
-    "./react": "./output/react/src/ActivityCalendarWidget.jsx",
-    "./svelte": "./output/svelte/src/ActivityCalendarWidget.svelte",
-    "./vue": "./output/vue/vue3/src/ActivityCalendarWidget.vue",
-    "./solid": "./output/solid/src/ActivityCalendarWidget.jsx",
-    "./qwik": "./output/qwik/src/ActivityCalendarWidget.jsx"
-  },
-  "scripts": {
-    "build": "npm exec mitosis build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patrick-kw-chiu/activity-calendar-widget.git"
-  },
-  "files": [
-    "output/**/*"
-  ],
-  "keywords": [
-    "github",
-    "github activity",
-    "github contribution",
-    "github activity calendar",
-    "github contribution calendar",
-    "react",
-    "svelte",
-    "vue",
-    "solid",
-    "mitosis"
-  ],
-  "author": "Patrick Chiu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/patrick-kw-chiu/activity-calendar-widget/issues"
-  },
-  "homepage": "https://github.com/patrick-kw-chiu/activity-calendar-widget#readme",
-  "dependencies": {
-    "@builder.io/mitosis": "^0.0.93",
-    "@builder.io/mitosis-cli": "^0.0.52"
-  },
-  "devDependencies": {
-    "@builder.io/eslint-plugin-mitosis": "^0.0.14",
-    "@typescript-eslint/parser": "^5.56.0"
-  }
+	"name": "activity-calendar-widget",
+	"version": "0.0.16",
+	"type": "module",
+	"description": "",
+	"main": "./output/react/src/ActivityCalendarWidget.tsx",
+	"exports": {
+		"./react": "./output/react/src/ActivityCalendarWidget.tsx",
+		"./svelte": "./output/svelte/src/ActivityCalendarWidget.svelte",
+		"./vue": "./output/vue/src/ActivityCalendarWidget.vue",
+		"./solid": "./output/solid/src/ActivityCalendarWidget.tsx",
+		"./qwik": "./output/qwik/src/ActivityCalendarWidget.tsx"
+	},
+	"scripts": {
+		"start": "watch \"npm run build\" ./src",
+		"build": "mitosis build --c mitosis.config.cjs && cp -R ./output ./test-app/src",
+		"lint": "eslint"
+	},
+	"dependencies": {
+		"@builder.io/eslint-plugin-mitosis": "^0.0.15",
+		"@builder.io/mitosis": "latest",
+		"@builder.io/mitosis-cli": "latest",
+		"eslint": "^8.51.0"
+	},
+	"devDependencies": {
+		"watch": "^1.0.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/patrick-kw-chiu/activity-calendar-widget.git"
+	},
+	"files": [
+		"output/**/*"
+	],
+	"keywords": [
+		"github",
+		"github activity",
+		"github contribution",
+		"github activity calendar",
+		"github contribution calendar",
+		"react",
+		"svelte",
+		"vue",
+		"solid",
+		"mitosis"
+	],
+	"author": "Patrick Chiu",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/patrick-kw-chiu/activity-calendar-widget/issues"
+	},
+	"homepage": "https://github.com/patrick-kw-chiu/activity-calendar-widget#readme"
 }

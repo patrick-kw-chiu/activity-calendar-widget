@@ -1,0 +1,57 @@
+---
+import ReactApp from '../components/ReactApp.jsx';
+import SvelteApp from '../components/SvelteApp.svelte';
+import VueApp from '../components/VueApp.vue';
+import SolidApp from '../components/SolidApp.jsx'
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <title>example</title>
+    </head>
+    <body>
+        <div>
+            React
+        </div>
+        <div>
+            <ReactApp client:load />
+        </div>
+        <hr />
+        <div>
+            Svelte
+        </div>
+        <div>
+            <SvelteApp client:load />
+        </div>
+        <hr />
+        <div>
+            Vue
+        </div>
+        <div>
+            <VueApp client:load />
+        </div>
+        <hr />
+        <div>
+            Solid
+        </div>
+        <div>
+            <SolidApp client:load />
+        </div>
+    </body>
+</html>
+
+<style>
+:root {
+    /* --activity-calendar-widget-light-0: ''; */
+    /* --activity-calendar-widget-light-1: ''; */
+    /* --activity-calendar-widget-light-2: ''; */
+    --activity-calendar-widget-light-3: red;
+    /* --activity-calendar-widget-light-4: ''; */
+    /* --activity-calendar-widget-dark-0: ''; */
+    /* --activity-calendar-widget-dark-1: ''; */
+    /* --activity-calendar-widget-dark-2: ''; */
+    /* --activity-calendar-widget-dark-3: ''; */
+    /* --activity-calendar-widget-dark-4: ''; */
+}
+</style>

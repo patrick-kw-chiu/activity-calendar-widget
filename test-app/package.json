@@ -1,0 +1,28 @@
+{
+  "name": "test-app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^2.1.0",
+    "@astrojs/solid-js": "^2.1.0",
+    "@astrojs/svelte": "^2.1.0",
+    "@astrojs/vue": "^2.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "activity-calendar-widget": "^0.0.14",
+    "astro": "^2.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "solid-js": "^1.6.15",
+    "solid-styled-components": "^0.28.5",
+    "svelte": "^3.57.0",
+    "vue": "^3.2.47"
+  }
+}

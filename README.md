@@ -33,19 +33,19 @@ It can then be imported in various frameworks like...
 
 ```javascript
 // React
-import ActivityCalendarWidget from "activity-calendar-widget/react";
+import ActivityCalendarWidget from 'activity-calendar-widget/react';
 
 // Vue
-import ActivityCalendarWidget from "activity-calendar-widget/vue";
+import ActivityCalendarWidget from 'activity-calendar-widget/vue';
 
 // Svelte
-import ActivityCalendarWidget from "activity-calendar-widget/svelte";
+import ActivityCalendarWidget from 'activity-calendar-widget/svelte';
 
 // Solid
-import ActivityCalendarWidget from "activity-calendar-widget/solid";
+import ActivityCalendarWidget from 'activity-calendar-widget/solid';
 
 // Qwik
-import ActivityCalendarWidget from "activity-calendar-widget/qwik";
+import ActivityCalendarWidget from 'activity-calendar-widget/qwik';
 ```
 
 ### Basic Usage

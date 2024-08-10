@@ -35,7 +35,9 @@ function SolidApp() {
           3: '水曜日',
           5: '金曜日',
         }}
+        weekStart={2}
         clickHandler={(dt) => console.log(dt)}
+        showTooltip={false}
       />
     </div>
   );

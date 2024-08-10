@@ -3,7 +3,7 @@
  */
 module.exports = {
   files: 'src/**',
-  targets: ['react', 'svelte', 'solid', 'vue', 'qwik'],
+  targets: ['react', 'svelte', 'solid', 'vue', 'qwik', 'angular'],
   dest: 'output',
   commonOptions: {
     typescript: true,

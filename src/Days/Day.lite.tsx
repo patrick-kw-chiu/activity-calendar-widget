@@ -69,7 +69,7 @@ const getTooltipText = ({
 
 export default function Day(props: DayProps) {
   const state = useStore({
-    showTooltip: false,
+    _showTooltip: false,
     tooltipPosition: 'center',
     updateShowTooltip(action, event) {
       if (event.clientX < 132) {
@@ -79,7 +79,7 @@ export default function Day(props: DayProps) {
       } else {
         state.tooltipPosition = 'center';
       }
-      state.showTooltip = action === 'enter';
+      state._showTooltip = action === 'enter';
     },
   });
 
@@ -105,7 +105,7 @@ export default function Day(props: DayProps) {
           right: props.right,
         }}
       ></div>
-      <Show when={state.showTooltip}>
+      <Show when={props.showTooltip && state._showTooltip}>
         <div
           css={{
             zIndex: '15',

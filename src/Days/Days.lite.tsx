@@ -49,36 +49,44 @@ type DaysProps = {
   monthLabel?: MonthLabel;
 };
 
+// Util
+const getSafeWeekStart = (weekStart) =>
+  Math.max(Math.min(weekStart ?? 0, 6), 0);
+
 // Day Block
 const getDayDiffToStartOfCalendar = (weekStart) => {
   const todayDt = new Date();
   const oneYearAgoDt = new Date();
   oneYearAgoDt.setDate(todayDt.getDate() - 364);
   const oneYearAgoDayOfWeek = oneYearAgoDt.getDay();
-  const dayDiffToStartOfCalendar = oneYearAgoDayOfWeek - (weekStart || 0);
+  const dayDiffToStartOfCalendar = oneYearAgoDayOfWeek - weekStart;
   return dayDiffToStartOfCalendar;
 };
 
 const getContainerWidth = (weekStart, daysToRender, showWeekdayLabels) => {
-  const daysContainerWidth = getDaysContainerWidth(weekStart, daysToRender);
+  const daysContainerWidth = getDaysContainerWidth(
+    getSafeWeekStart(weekStart),
+    daysToRender
+  );
   return daysContainerWidth + (showWeekdayLabels ?? true ? 42 : 0) + 'px';
 };
 
 const getDaysContainerWidth = (weekStart, daysToRender) => {
+  const _weekStart = getSafeWeekStart(weekStart);
   const todayDayOfWeek = new Date().getDay();
   let numOfDaysInLastColumn = 0;
-  if (!weekStart) {
+  if (!_weekStart) {
     numOfDaysInLastColumn = todayDayOfWeek + 1;
   } else {
     numOfDaysInLastColumn =
-      weekStart > todayDayOfWeek
-        ? todayDayOfWeek + 7 + 1 - weekStart
-        : todayDayOfWeek + 1 - weekStart;
+      _weekStart > todayDayOfWeek
+        ? todayDayOfWeek + 7 + 1 - _weekStart
+        : todayDayOfWeek + 1 - _weekStart;
   }
 
   let numOfDaysInRemainingColumns = 0;
   if (!daysToRender && daysToRender !== 0) {
-    const dayDiffToStartOfCalendar = getDayDiffToStartOfCalendar(weekStart);
+    const dayDiffToStartOfCalendar = getDayDiffToStartOfCalendar(_weekStart);
     numOfDaysInRemainingColumns =
       365 + dayDiffToStartOfCalendar - numOfDaysInLastColumn;
   } else {
@@ -97,6 +105,8 @@ const getDayLevel = ({ numOfLevels, activitiesPerc }) => {
 };
 
 const getDays = ({ levelColors, data, weekStart, daysToRender }) => {
+  const _weekStart = getSafeWeekStart(weekStart);
+
   // 1. Init helper variables
   const numOfLevels = levelColors?.length ? levelColors.length - 1 : 4;
   let maxNumOfContributions = 0;
@@ -111,7 +121,7 @@ const getDays = ({ levelColors, data, weekStart, daysToRender }) => {
 
   // 3. Merge the activities to days array
   return new Array(
-    daysToRender ? daysToRender : 365 + getDayDiffToStartOfCalendar(weekStart)
+    daysToRender ? daysToRender : 365 + getDayDiffToStartOfCalendar(_weekStart)
   )
     .fill(0)
     .map((_, index) => {
@@ -153,10 +163,11 @@ const getDayColor = ({ level, levelColors, levelColorMode }) => {
 
 const getDayTop = (arg) => {
   const { dayOfWeek = 0, weekStart = 0 } = arg;
-  if (dayOfWeek - weekStart < 0) {
-    return (dayOfWeek - weekStart + 7) * 14;
+  const _weekStart = getSafeWeekStart(weekStart);
+  if (dayOfWeek - _weekStart < 0) {
+    return (dayOfWeek - _weekStart + 7) * 14;
   }
-  return (dayOfWeek - weekStart) * 14;
+  return (dayOfWeek - _weekStart) * 14;
 };
 
 const getDayRight = (arg) => {
@@ -166,16 +177,17 @@ const getDayRight = (arg) => {
   return (
     (Math.floor(dayDiffFromToday / 7) +
       (dayOfWeek > todayDayOfWeek ? 1 : 0) +
-      (dayOfWeek < weekStart ? 1 : 0)) *
+      (dayOfWeek < getSafeWeekStart(weekStart) ? 1 : 0)) *
     14
   );
 };
 
 // Week Block
 const getWeekdayLabels = (weekdayLabel?: WeekdayLabel, weekStart = 0) => {
+  const _weekStart = getSafeWeekStart(weekStart);
   let _weekdayLabels: string[] = [];
   for (let i = 0; i < 7; i++) {
-    let weekStartId = weekStart + i >= 7 ? weekStart + i - 7 : weekStart + i;
+    let weekStartId = _weekStart + i >= 7 ? _weekStart + i - 7 : _weekStart + i;
     if (weekdayLabel) {
       // If `weekdayLabel` is available
       // => only render `weekdayLabel` value
@@ -221,7 +233,7 @@ const getSummary = ({
   return `${count} activities in this period`;
 };
 
-// Level Block
+// Level Block 1000 ->
 const getLevelColors = ({ levelColors, levelColorMode }) => {
   return (
     levelColors ??

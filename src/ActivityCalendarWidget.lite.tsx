@@ -38,7 +38,7 @@ type ActivityCalendarWidgetProps = {
   tooltipTextColor?: string;
   tooltipText?: string;
   // 'day' specific props
-  weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  weekStart?: WeekdayKey;
   showWeekdayLabels?: boolean;
   weekdayLabel?: WeekdayLabel;
   showMonthLabels?: boolean;

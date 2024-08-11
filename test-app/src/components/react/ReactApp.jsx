@@ -1,19 +1,21 @@
-import { createEffect, createSignal } from 'solid-js';
+import { useEffect, useState } from 'react';
 
-import { getDays } from './utils';
+import '../index.css';
 
-import ActivityCalendarWidget from '../output/solid/src/ActivityCalendarWidget';
+import { getDays } from '../utils';
 
-function SolidApp() {
-  const [data, setData] = createSignal([]);
-  const [daysToRender, setDaysToRender] = createSignal(150);
+import ActivityCalendarWidget from '../../output/react/src/ActivityCalendarWidget';
 
-  createEffect(() => {
+function ReactApp(props) {
+  const [data, setData] = useState([]);
+  const [daysToRender, setDaysToRender] = useState(150);
+
+  useEffect(() => {
     generateData();
-  }, 0);
+  }, []);
 
   const generateData = () => {
-    const data = getDays(daysToRender());
+    const data = getDays(daysToRender);
     setData(data);
   };
 
@@ -23,24 +25,24 @@ function SolidApp() {
     setDaysToRender(daysToRender);
   };
 
+  console.log({ data, daysToRender });
   return (
     <div>
       <button onClick={generateData}>Re-generate `data`</button>
       <button onClick={generateDaysToRender}>Re-generate `daysToRender`</button>
       <ActivityCalendarWidget
-        data={data()}
-        daysToRender={daysToRender()}
+        data={data}
+        daysToRender={daysToRender}
         weekdayLabel={{
           1: '月曜日',
           3: '水曜日',
           5: '金曜日',
         }}
-        weekStart={2}
         clickHandler={(dt) => console.log(dt)}
-        showTooltip={false}
+        tooltipFunction={() => <div>sdf</div>}
       />
     </div>
   );
 }
 
-export default SolidApp;
+export default ReactApp;

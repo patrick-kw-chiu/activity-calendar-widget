@@ -1,8 +1,8 @@
 ---
-import ReactApp from '../components/ReactApp.jsx';
+import ReactApp from '../components/react/ReactApp.jsx';
 import SvelteApp from '../components/SvelteApp.svelte';
 import VueApp from '../components/VueApp.vue';
-import SolidApp from '../components/SolidApp.jsx'
+import SolidApp from '../components/solid/SolidApp.jsx';
 ---
 
 <html lang="en">
@@ -15,7 +15,7 @@ import SolidApp from '../components/SolidApp.jsx'
             React
         </div>
         <div>
-            <ReactApp client:load />
+            <ReactApp client:only="react" />
         </div>
         <hr />
         <div>
@@ -29,14 +29,14 @@ import SolidApp from '../components/SolidApp.jsx'
             Vue
         </div>
         <div>
-            <VueApp client:load />
+            <VueApp client:only="vue" />
         </div>
         <hr />
         <div>
             Solid
         </div>
         <div>
-            <SolidApp client:load />
+            <SolidApp client:only="solid-js" />
         </div>
     </body>
 </html>

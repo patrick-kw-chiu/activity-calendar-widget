@@ -36,7 +36,7 @@
   export let showWeekdayLabels;
   export let showMonthLabels;
   export let weekdayLabel;
-  export let monthLabel = { 12: '十二月' };
+  export let monthLabel = { 4: '444', 6: '六月', 12: '十二月' };
   export let clickHandler;
 </script>
 

@@ -1,5 +1,16 @@
 # Activity Calendar Widget
 
+<details>
+  <summary>Interactive code demo (React)</summary>
+
+<br />
+
+[Stackblitz link](https://stackblitz.com/edit/vitejs-vite-aa5ew9?embed=1&file=README.md&view=preview)
+
+https://github.com/user-attachments/assets/36ac25aa-dd02-44c5-9ef2-b8031f7558fa
+
+</details>
+
 A "GitHub Contribution/Activity" like calendar widget, that can be used as native components of [React](https://stackblitz.com/edit/react-ts-pjkx7k), [Vue](https://stackblitz.com/edit/vitejs-vite-zwsqz2?file=src), [Svelte](https://stackblitz.com/edit/vitejs-vite-r7rxjt?terminal=dev), [Solid](https://stackblitz.com/edit/solidjs-templates-mjote1) and [Qwik](https://stackblitz.com/edit/qwik-starter-due4dq). You can used it with the [GitHub activity API](https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28#list-public-events-for-a-user) or to display any activity data.
 
 <p align="center">

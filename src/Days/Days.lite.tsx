@@ -177,7 +177,8 @@ const getDayRight = (arg) => {
   return (
     (Math.floor(dayDiffFromToday / 7) +
       (dayOfWeek > todayDayOfWeek ? 1 : 0) +
-      (dayOfWeek < getSafeWeekStart(weekStart) ? 1 : 0)) *
+      (dayOfWeek < getSafeWeekStart(weekStart) ? 1 : 0) +
+      (weekStart > todayDayOfWeek ? -1 : 0)) *
     14
   );
 };

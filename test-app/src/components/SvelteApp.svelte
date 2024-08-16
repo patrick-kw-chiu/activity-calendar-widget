@@ -18,26 +18,26 @@
     console.log({ data });
   };
 
-  export let mode;
-  export let data = _generateData(150);
-  export let showLevels;
-  export let summaryText;
-  export let levelColorMode;
-  export let levelColors;
-  export let levelLabelLess;
-  export let levelLabelMore;
-  export let showTooltip;
-  export let tooltipBgColor;
-  export let tooltipTextColor;
-  export let tooltipText;
-  export let tooltipFunction = ActivityCalendarWidget;
-  export let weekStart;
-  export let daysToRender = 150;
-  export let showWeekdayLabels;
-  export let showMonthLabels;
-  export let weekdayLabel;
-  export let monthLabel = { 4: '444', 6: '六月', 12: '十二月' };
-  export let clickHandler;
+  let mode;
+  let data = _generateData(150);
+  let showLevels;
+  let summaryText;
+  let levelColorMode;
+  let levelColors;
+  let levelLabelLess;
+  let levelLabelMore;
+  let showTooltip;
+  let tooltipBgColor;
+  let tooltipTextColor;
+  let tooltipText;
+  let tooltipFunction = ActivityCalendarWidget;
+  let weekStart;
+  let daysToRender = 150;
+  let showWeekdayLabels;
+  let showMonthLabels;
+  let weekdayLabel;
+  let monthLabel = { 4: '444', 6: '六月', 12: '十二月' };
+  let clickHandler;
 </script>
 
 <div>

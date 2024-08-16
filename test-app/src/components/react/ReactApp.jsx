@@ -40,6 +40,7 @@ function ReactApp(props) {
         }}
         clickHandler={(dt) => console.log(dt)}
         tooltipFunction={() => <div>sdf</div>}
+        weekStart={3}
       />
     </div>
   );

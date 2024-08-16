@@ -23,7 +23,6 @@ function SolidApp() {
     setDaysToRender(daysToRender);
   };
 
-  console.log(ActivityCalendarWidget);
   return (
     <div>
       <button onClick={generateData}>Re-generate `data`</button>
@@ -36,7 +35,7 @@ function SolidApp() {
           3: '水曜日',
           5: '金曜日',
         }}
-        weekStart={2}
+        weekStart={1}
         clickHandler={(dt) => console.log(dt)}
         showTooltip={false}
       />

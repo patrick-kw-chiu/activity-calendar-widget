@@ -16,13 +16,11 @@
     "build": "mitosis build --c mitosis.config.cjs && cp -R ./output ./test-app/src",
     "lint": "eslint"
   },
-  "dependencies": {
+  "devDependencies": {
     "@builder.io/eslint-plugin-mitosis": "^0.0.15",
     "@builder.io/mitosis": "latest",
     "@builder.io/mitosis-cli": "latest",
-    "eslint": "^8.51.0"
-  },
-  "devDependencies": {
+    "eslint": "^8.51.0",
     "watch": "^1.0.2"
   },
   "repository": {
